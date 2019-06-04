@@ -1,0 +1,21 @@
+SET-UP:
+ Install Python
+ Install Pip
+ Install VirtualEnv:
+   pip install virtualenv
+ Install VirtualEnvWrapper-win:
+   pip install virtualenvwrapper-win
+
+USAGE:
+ Make a Virtual Environment:
+   mkvirtualenv "Folder Name" -no quotes
+ Connect our project with our Environment:
+   go inside folders's directory
+ Set Project Directory:
+   setprojectdir
+ now install your library example:
+   pip ubstakk flask
+
+OTHERS:
+ deactivate
+   deactivate

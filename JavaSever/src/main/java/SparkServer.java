@@ -11,7 +11,7 @@ public class SparkServer extends Singleton implements SingletonInterface{
     private List<Integer> temp;
     Gson gson = new Gson();
 
-    public SparkServer(){port(8080);}
+    public SparkServer(){port(5000);}
 
     public void run()
     {
