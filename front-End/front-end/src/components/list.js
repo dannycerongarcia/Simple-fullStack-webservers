@@ -6,7 +6,7 @@ class List extends Component {
         super(props);
         this.state = {
             data: [],
-            data2:[]
+            data2: []
         }
     }
 
@@ -14,9 +14,9 @@ class List extends Component {
         axios.get('/Ilist')
             .then((res) => {
                 this.setState({ data: res.data });
-                this.setState({data2 :this.store(this.state.data)});
+                this.setState({ data2: this.store(this.state.data) });
                 console.log(this.state.data2);
-                
+
             })
             .catch(error => {
                 console.log(error);
@@ -24,7 +24,7 @@ class List extends Component {
 
     }
 
-    store(props){
+    store(props) {
         const listItems = props.list.map(car =>
             <li key={car.name}>
                 {car.name}
@@ -32,15 +32,15 @@ class List extends Component {
         )
         return <div>{listItems}</div>;
     }
-    
+
     render() {
         this.load();
-        
-        
-        
+
+
+
         return (
             <div>
-              {this.state.data2}
+                {this.state.data2}
             </div>
         );
     }
