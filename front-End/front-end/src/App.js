@@ -5,8 +5,8 @@ import axios from 'axios';
 
 import './App.css';
 
-import List from './components/list';
-import HomePage from './components/Home';
+import List from './components/list/list';
+import HomePage from './components/index/Home';
 
 
 class App extends Component {

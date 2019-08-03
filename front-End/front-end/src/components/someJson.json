@@ -1,7 +1,8 @@
 {
-  "list": {
-    "name":"model s",
-    "name":"model 3",
-    "name":"model x",
-    "name":"model y"}
+  "list": [
+    {"name": "model s"},
+    {"name": "model 3"},
+    {"name": "model x"},
+    {"name": "model y"}
+  ]
 }

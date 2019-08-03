@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Jsondata from '../someJson.json'
 
 class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
-            data2: []
+            data2: [],
+            jsonData: []
         }
+        this.load_json_file = this.load_json_file.bind(this)
+        
+    }
+    load_json_file(e){
+        // e.preventDEfault()
+       const temp_json = Jsondata.list.map((dataDetails) => {
+           return(
+            <li key = {dataDetails.name}>
+                {console.log(dataDetails.name)}
+                {dataDetails.name}
+            </li>
+           )
+       });
+        this.setState({jsonData:temp_json});
     }
 
     load() {
@@ -34,14 +50,19 @@ class List extends Component {
     }
 
     render() {
-        this.load();
+        // this.load();
+        // this.load_json_file();
 
 
 
         return (
+           
             <div>
-                {this.state.data2}
+                <h1>the list pages</h1>
+                {/* {this.state.data2} */}
+                {this.state.jsonData}
             </div>
+
         );
     }
 }
