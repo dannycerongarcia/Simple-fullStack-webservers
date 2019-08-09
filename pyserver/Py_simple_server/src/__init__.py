@@ -6,4 +6,4 @@ from src.API.routes import mod
 from src.SITE.routes import mod
 
 app.register_blueprint(SITE.routes.mod)
-app.register_blueprint(API.routes.mod,url_prefix = '/api')
+app.register_blueprint(API.routes.mod,url_prefix = '/Ilist')

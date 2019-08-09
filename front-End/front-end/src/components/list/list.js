@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Jsondata from '../someJson.json'
+import myJsonData from '../someJson.json'
 
 class List extends Component {
     constructor(props) {
@@ -10,20 +10,18 @@ class List extends Component {
             data2: [],
             jsonData: []
         }
-        this.load_json_file = this.load_json_file.bind(this)
-        
+        // this.load_json_file = this.load_json_file.bind(this)
     }
-    load_json_file(e){
-        // e.preventDEfault()
-       const temp_json = Jsondata.list.map((dataDetails) => {
-           return(
-            <li key = {dataDetails.name}>
-                {console.log(dataDetails.name)}
-                {dataDetails.name}
-            </li>
-           )
-       });
-        this.setState({jsonData:temp_json});
+
+    load_json_file = () => {
+        this.state.jsonData = myJsonData.list.map(list => {
+            return (
+                <h3 key={list.id}>
+                    {list.name}
+                </h3>
+            )
+        })
+        // this.setState({ jsonData: "CAR1" });
     }
 
     load() {
@@ -32,7 +30,6 @@ class List extends Component {
                 this.setState({ data: res.data });
                 this.setState({ data2: this.store(this.state.data) });
                 console.log(this.state.data2);
-
             })
             .catch(error => {
                 console.log(error);
@@ -53,13 +50,12 @@ class List extends Component {
         // this.load();
         // this.load_json_file();
 
-
-
         return (
-           
+            
             <div>
-                <h1>the list pages</h1>
-                {/* {this.state.data2} */}
+
+                <h1>The list pages</h1>
+                {this.state.data2}
                 {this.state.jsonData}
             </div>
 

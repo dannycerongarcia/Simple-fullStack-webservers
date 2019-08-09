@@ -1,8 +1,8 @@
 from flask import Blueprint
 
-mod = Blueprint('api', __name__)
+mod = Blueprint('Ilist', __name__)
 
 # name of decorator is the name of the blueprint
-@mod.route('/getStuff')
+@mod.route('')
 def getStuff():
-    return '{"items":["cars","boats", "Bikes"]}'
+    return '{"list":[{"id":1,"name":"cars"},{"id":2,"name":"boats"}, {"id":3,"name":"Bikes"}]}'
