@@ -9,6 +9,8 @@ class HomePage extends React.Component {
         }
     }
 
+    anime
+
     render() {
         return (
             <div class="back-ground">
@@ -42,6 +44,17 @@ class HomePage extends React.Component {
                         </ul>
                     </div>
                 </nav>
+                <div class = "container">
+                    <div class = "row">
+                        <div class = "col-sm"></div>
+                        <div class = "col">
+                            <div class = "roundCorner1">
+                            <h1 class = "m13 center-text">This a full stack website using python and jave as its back-ends</h1>
+                            </div>
+                        </div>
+                        <div class = "col-sm"></div>
+                    </div>
+                </div>
             </div>
         );
     }

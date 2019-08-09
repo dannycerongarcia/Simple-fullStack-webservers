@@ -1,8 +1,22 @@
 .back-ground2 {
     /* position: fixed lets us make it fullscreen  */
     position: fixed;
-    background-color: aqua;
+    background-color:gainsboro;
     height: 100%;
     width: 100%;
    
+}
+
+.m13{
+    font-weight: 900;
+    font-size: 3.5m;
+    color: azure;
+}
+
+.center-list{
+    text-align: center;
+}
+ 
+.bList{
+    border:3px solid blueviolet
 }
