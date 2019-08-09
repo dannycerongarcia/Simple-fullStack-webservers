@@ -1,0 +1,8 @@
+.back-ground2 {
+    /* position: fixed lets us make it fullscreen  */
+    position: fixed;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+   
+}

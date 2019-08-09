@@ -1,0 +1,12 @@
+.back-ground {
+    /* position: fixed lets us make it fullscreen  */
+    position: fixed;
+    background-position: center;
+    background-size: cover;
+    background-image: url(./bayArea.JPG);
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    
+   
+}
