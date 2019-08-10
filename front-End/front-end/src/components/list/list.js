@@ -43,7 +43,7 @@ class List extends Component {
         const listItems = props.list.map(id =>
             <tr key={id.id}>
                 <td>{id.id}</td>
-                <td>{id.name}</td>
+                {/* <td>{id.name}</td> */}
             </tr>
         )
         return <div>{listItems}</div>;
@@ -51,9 +51,9 @@ class List extends Component {
 
     store(props) {
         const listItems = props.list.map(car =>
-            <p key={car.name}>
+            <tr key={car.id}>
                 <td>{car.name}</td>
-            </p>
+            </tr>
         )
         return <div>{listItems}</div>;
     }
@@ -117,6 +117,7 @@ class List extends Component {
                                         <td>model 00</td>
                                     </tr>
                                     {this.state.id}
+                                    {this.state.data2}
                                     {/* {this.state.data2} */}
                                 </tbody>
                                 <tfoot>
