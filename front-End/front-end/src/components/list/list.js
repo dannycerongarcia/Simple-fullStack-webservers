@@ -14,6 +14,11 @@ class List extends Component {
         }
         // this.load_json_file = this.load_json_file.bind(this)
     }
+    whichList = (props) =>{
+        if(props<0){this.load_json_file()
+        }else
+        {}
+    }
 
     load_json_file = () => {
         this.state.jsonData = myJsonData.list.map(list => {
@@ -27,17 +32,20 @@ class List extends Component {
     }
 
     load() {
+        let checker  =-1;
         axios.get('/Ilist')
             .then((res) => {
                 this.setState({ data: res.data });
-                this.setState({ data2: this.store(this.state.data) });
+                // this.setState({ data2: this.store(this.state.data) });
                 this.setState({ id: this.storeID(this.state.data) });
                 console.log(this.state.data2);
+                checker =1;
             })
             .catch(error => {
                 console.log(error);
+                checker=-1;
             });
-
+        return checker;
     }
     storeID(props) {
         const listItems = (
@@ -73,8 +81,8 @@ class List extends Component {
     }
 
     render() {
-        this.load();
-        this.load_json_file();
+        
+        this.whichList(this.load());
 
         return (
             <div class="back-ground2">
