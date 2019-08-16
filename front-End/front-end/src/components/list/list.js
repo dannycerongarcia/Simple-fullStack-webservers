@@ -40,11 +40,25 @@ class List extends Component {
 
     }
     storeID(props) {
-        const listItems = props.list.map(id =>
-            <tr key={id.id}>
-                <td>{id.id}</td>
-                {/* <td>{id.name}</td> */}
-            </tr>
+        const listItems = (
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm bList">ID</th>
+                        <th class="th-sm bList">Item</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {props.list.map(id =>
+                        <tr>
+                            <td key={id.id}>{id.id}</td>
+                            <td key={id.name}>{id.name}</td>
+                        </tr>
+
+                    )}
+                </tbody>
+            </table>
         )
         return <div>{listItems}</div>;
     }
@@ -103,31 +117,7 @@ class List extends Component {
                             {this.state.jsonData}
                         </div>
                         <div class="col center-list">
-                            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th class="th-sm bList">ID</th>
-                                        <th class="th-sm bList">Item</th>
-                                    </tr>
-
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>0</td>
-                                        <td>model 00</td>
-                                    </tr>
-                                    {this.state.id}
-                                    {this.state.data2}
-                                    {/* {this.state.data2} */}
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="th-sm bList">ID</th>
-                                        <th class="th-sm bList">Item</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-
+                            {this.state.id}
                         </div>
                         <div class="col"></div>
                     </div>
