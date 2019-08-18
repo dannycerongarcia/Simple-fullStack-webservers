@@ -10,42 +10,59 @@ class List extends Component {
             data: [],
             data2: [],
             jsonData: [],
-            id: []
+            id: [],
+            cheker:1
         }
-        // this.load_json_file = this.load_json_file.bind(this)
     }
     whichList = (props) =>{
-        if(props<0){this.load_json_file()
+        console.log("which list function result "+this.state.cheker);
+        if(this.state.cheker == 0){
+            this.state.jsonData = [];
+            console.log("state status: "+this.state.cheker)
         }else
-        {}
+        {
+            this.load_json_file();
+        }
     }
 
     load_json_file = () => {
-        this.state.jsonData = myJsonData.list.map(list => {
+        
+        this.state.jsonData =
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm bList">ID</th>
+                        <th class="th-sm bList">Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+         {myJsonData.list.map(list => {
             return (
-                <h3 key={list.id}>
-                    {list.name}
-                </h3>
+                <tr>
+                    <td key={list.id}>{list.id}</td>
+                    <td key={list.name}>{list.name}</td>
+                </tr>
             )
-        })
-        // this.setState({ jsonData: "CAR1" });
+        })}
+        </tbody>
+        </table>
     }
 
     load() {
-        let checker  =-1;
-        axios.get('/Ilist')
+        
+        var request = axios.get('/Ilist')
             .then((res) => {
+                
                 this.setState({ data: res.data });
-                // this.setState({ data2: this.store(this.state.data) });
+                this.setState({jsonData: []});
                 this.setState({ id: this.storeID(this.state.data) });
-                console.log(this.state.data2);
-                checker =1;
+                this.state.cheker=1;
+                
             })
             .catch(error => {
                 console.log(error);
-                checker=-1;
             });
-        return checker;
+        request.then(x => this.state.cheker=0);
     }
     storeID(props) {
         const listItems = (
@@ -55,7 +72,6 @@ class List extends Component {
                         <th class="th-sm bList">ID</th>
                         <th class="th-sm bList">Item</th>
                     </tr>
-
                 </thead>
                 <tbody>
                     {props.list.map(id =>
@@ -73,7 +89,7 @@ class List extends Component {
 
     store(props) {
         const listItems = props.list.map(car =>
-            <tr key={car.id}>
+            <tr key = {car.id}>
                 <td>{car.name}</td>
             </tr>
         )
@@ -81,8 +97,8 @@ class List extends Component {
     }
 
     render() {
-        
-        this.whichList(this.load());
+        let key = this.load()
+        this.whichList(key);
 
         return (
             <div class="back-ground2">
@@ -97,10 +113,10 @@ class List extends Component {
                                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/list">List</a>
+                                <a class="nav-link" href="/list">Tables</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="#">Algorithms</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -118,14 +134,18 @@ class List extends Component {
                 <div class="container-fluid">
 
                     <div class="row">
-                        <h1>The list pages</h1>
+                        <div class="col">
+                        <div class="center-list">
+                            <h1>The list pages</h1>
+                        </div>
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            {this.state.jsonData}
+                        <div class="col">  
                         </div>
                         <div class="col center-list">
                             {this.state.id}
+                            {this.state.jsonData}
                         </div>
                         <div class="col"></div>
                     </div>
