@@ -22,14 +22,13 @@ class HomePage extends React.Component {
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/
-                                ">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/list">List test</a>
+                                <a class="nav-link" href="/list">Tables</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="#">Algorithms</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,13 +45,13 @@ class HomePage extends React.Component {
                 </nav>
                 <div class = "container">
                     <div class = "row">
-                        <div class = "col-sm"></div>
+                        <div class = "col"></div>
                         <div class = "col">
                             <div class = "roundCorner1">
-                            <h1 class = "m13 center-text">This a full stack website using python and jave as its back-ends</h1>
+                                <h1 class = "m13 center-text">This a full stack website using React as front-end, python and jave as its back-end</h1>
                             </div>
                         </div>
-                        <div class = "col-sm"></div>
+                        <div class = "col"></div>
                     </div>
                 </div>
             </div>
